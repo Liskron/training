@@ -1,5 +1,8 @@
 package pl.pollub.training.model;
 
+/**
+ * @author Vlad
+ */
 public class Person {
 
     private int id;
