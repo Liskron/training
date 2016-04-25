@@ -1,6 +1,6 @@
-package pl.pollub.training.model.pattern;
+package pl.pollub.training.model.day1.pattern;
 
-import pl.pollub.training.model.Person;
+import pl.pollub.training.model.day1.Person;
 
 import java.util.HashMap;
 import java.util.Map;

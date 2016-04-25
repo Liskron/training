@@ -1,15 +1,21 @@
-package pl.pollub.training.model;
+package pl.pollub.training.model.day1;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 /**
  * @author Vlad
+ * http://www.tutorialspoint.com/java/java_serialization.htm
  */
-public class Person implements Comparable<Person>, Cloneable {
+public class Person implements Comparable<Person>, Cloneable, Serializable {
+
+    private static final long serialVersionUID = -5420014771518445831L;
 
     private int id;
     private String name;
     private int age;
+    private String address;
+    private AgeGroup ageGroup;
 
     public Person() {
         System.out.println("Object created");
@@ -19,6 +25,7 @@ public class Person implements Comparable<Person>, Cloneable {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.ageGroup = AgeGroup.valueOf("CHILDREN");
     }
 
     public int getId() {
@@ -78,8 +85,33 @@ public class Person implements Comparable<Person>, Cloneable {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    public Object clone() throws CloneNotSupportedException {
         return super.clone();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        if (id != person.id) return false;
+        if (age != person.age) return false;
+        if (name != null ? !name.equals(person.name) : person.name != null) return false;
+        if (address != null ? !address.equals(person.address) : person.address != null) return false;
+        return ageGroup == person.ageGroup;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + age;
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (ageGroup != null ? ageGroup.hashCode() : 0);
+        return result;
     }
 
     public static class Builder {
@@ -107,5 +139,4 @@ public class Person implements Comparable<Person>, Cloneable {
             return this;
         }
     }
-
 }

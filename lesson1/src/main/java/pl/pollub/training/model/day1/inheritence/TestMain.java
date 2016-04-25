@@ -1,10 +1,6 @@
-package pl.pollub.training.model.inheritence;
+package pl.pollub.training.model.day1.inheritence;
 
-import pl.pollub.training.model.Person;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 class KeylessEntry {
