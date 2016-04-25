@@ -1,11 +1,15 @@
-package pl.pollub.training.model;
+package pl.pollub.training.model.day1;
 
 import org.junit.Assert;
 import org.junit.Test;
-import pl.pollub.training.model.inheritence.ClassA;
-import pl.pollub.training.model.inheritence.ClassC;
-import pl.pollub.training.model.pattern.PersonService;
+import pl.pollub.training.model.day1.Person;
+import pl.pollub.training.model.day1.StaticClass;
+import pl.pollub.training.model.day1.home.MyLinkedList;
+import pl.pollub.training.model.day1.inheritence.ClassA;
+import pl.pollub.training.model.day1.inheritence.ClassC;
+import pl.pollub.training.model.day1.pattern.PersonService;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -76,7 +80,7 @@ public class PersonTest {
 
     @Test
     public void testOutOfMemory() {
-        List<Person> storage = new ArrayList<Person>();
+        List<Person> storage = new ArrayList<>();
         for (long i = 0; i < Long.MAX_VALUE; i++) {
             Person person = new Person(999, "Name", 999);
             storage.add(person);
@@ -101,5 +105,25 @@ public class PersonTest {
                 .setId(55)
                 .build();
 
+    }
+
+    @Test
+    public void testMyLinkedList(){
+        List<Integer> list = new MyLinkedList<Integer>();
+        Random random = new Random();
+
+        for (int i = 0; i < 10; i++) {
+            list.add(i);
+        }
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+        System.out.println();
+
+        list.set(6,5);
+
+        for(int i = 0; i< list.size(); i++){
+            System.out.println(list.get(i));
+        }
     }
 }

@@ -1,4 +1,4 @@
-package pl.pollub.training.model;
+package pl.pollub.training.model.day1;
 
 public class StaticClass {
 

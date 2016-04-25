@@ -1,4 +1,4 @@
-package pl.pollub.training.model.pattern;
+package pl.pollub.training.model.day1.pattern;
 
 /**
  * Created by Wlad on 24.04.2016.
